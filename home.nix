@@ -28,6 +28,9 @@ in
      };
     }; 
   };
+  programs.fish = {
+    enable = true;
+  };
   xdg.configFile."nvim" = {
     source = mksymlink "${dotfiles}/nvim/";
     recursive = true;

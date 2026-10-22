@@ -128,6 +128,7 @@
     nixd
     kew
     nixfmt
+    fish
   ];
 
   # List services that you want to enable:
