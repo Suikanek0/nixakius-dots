@@ -96,6 +96,7 @@
   services.xserver.desktopManager.xfce.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  programs.starship.enable = true;
   programs.fish.enable = true;
   users.users."suika" = {
     isNormalUser = true;
@@ -131,8 +132,12 @@
     kew
     nixfmt
     fish
+    starship
   ];
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains.mono
+  ];
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
