@@ -8,6 +8,17 @@ in
 
   home.username = "suika";
   home.homeDirectory = "/home/suika";
+  home.stateVersion = "26.05";
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "github.com" = {
+        hostname = "github.com";
+	identityFile = "~/.ssh/githubkey";
+	identitiesOnly = true;
+    };
+   };
+  };
   programs.git = {
     enable = true;
     settings = {
@@ -17,7 +28,6 @@ in
      };
     }; 
   };
-  home.stateVersion = "26.05";
   xdg.configFile."nvim" = {
     source = mksymlink "${dotfiles}/nvim/";
     recursive = true;

@@ -32,6 +32,8 @@
   # programs
   programs.steam.enable = true;
   programs.umbriel.enable = true;
+  programs.ssh.startAgent = true;
+  services.gnome.gcr-ssh-agent.enable = false;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
