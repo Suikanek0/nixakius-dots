@@ -96,9 +96,11 @@
   services.xserver.desktopManager.xfce.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  programs.fish.enable = true;
   users.users."suika" = {
     isNormalUser = true;
     description = "suika";
+    shell = pkgs.fish;
     extraGroups = [
       "networkmanager"
       "wheel"
