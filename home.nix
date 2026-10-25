@@ -11,7 +11,7 @@ in
   home.stateVersion = "26.05";
   programs.ssh = {
     enable = true;
-    matchBlocks = {
+    settings = {
       "github.com" = {
         hostname = "github.com";
 	identityFile = "~/.ssh/githubkey";

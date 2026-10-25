@@ -96,12 +96,9 @@
   services.xserver.desktopManager.xfce.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  programs.starship.enable = true;
-  programs.fish.enable = true;
   users.users."suika" = {
     isNormalUser = true;
     description = "suika";
-    shell = pkgs.fish;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -123,6 +120,7 @@
     vesktop
     xauth
     xorg-server
+    easyeffects
     firefox
     gamescope
     gamemode
@@ -130,9 +128,10 @@
     ntfs3g
     nixd
     kew
+    rmpc
+    mpc
+    mpd
     nixfmt
-    fish
-    starship
   ];
 
   fonts.packages = with pkgs; [
