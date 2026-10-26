@@ -13,6 +13,19 @@
     inputs.umbriel.nixosModules.default
   ];
 
+#  stylix = {
+#    enable = true;
+#    image = ./dotconf/wallpapers/current_wallpaper;
+#    polarity = "dark";
+#    opacity = {
+#      terminal = 0.95;
+#    };
+#   };
+
+  environment.extraInit = ''
+    export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share"
+  '';
+
   # experimental func
   nix.settings.experimental-features = [
     "nix-command"
@@ -132,21 +145,73 @@
     mpc
     mpd
     nixfmt
+    nicotine-plus
+    kitty
+    cava
+    tree
+    matugen
+    yazi
+    awww
+    peaclock
+    lavat
+    pipes
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
+
+  services.flatpak = {
+    enable = true;
+    remotes = [
+      {
+        name = "flathub";
+        location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
+      }
+    ];
+    packages = [
+      "org.vinegarhq.Sober"
+    ];
+    overrides = {
+      settings = {
+        "org.vinegarhq.Sober" = {
+          Context.filesystems = [
+            "xdg-run/app/com.discordapp.Discord:create"
+            "xdg-run/discord-ipc-0"
+          ];
+        };
+      };
+    };
+
+    update.onActivation = true;
+   };
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+   services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  # windows disk mount
+  fileSystems."/home/suika/windows" = {
+    device = "/dev/disk/by-uuid/EE3AD89A3AD860DF";
+    fsType = "ntfs3";
+    options = [
+      "defaults"
+      "nofail"
+      "uid=1000"
+      "gid=100"
+      "dmask=0022"
+      "fmask=0133"
+      "windows_names"
+    ];
+   };
+
+
 
   system.stateVersion = "26.05"; # Did you read the comment?
 

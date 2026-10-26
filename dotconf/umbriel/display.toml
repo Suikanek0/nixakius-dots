@@ -1,0 +1,17 @@
+[output.DP-1]
+mode = "1920x1080@180"
+position = [0, 0]
+scale = 1.0
+vrr = "fullscreen"
+focus_at_startup = true
+
+[output.DP-2]
+position = [1920, 200]
+transform = "180"
+scale = 1.5
+
+[output.HDMI-A-1]
+position = [1920, -520]
+transform = "normal"
+scale = 1.5
+

@@ -1,0 +1,140 @@
+# Workspaces
+[[workspace]]
+name = "main"
+output = "DP-1"
+
+[[workspace]]
+name = "term"
+layout.mode = "dwindle"
+output = "DP-1"
+
+[[workspace]]
+name = "steam"
+output = "DP-1"
+
+[[workspace]]
+name = "chat"
+output = "DP-2"
+
+[[workspace]]
+name = "music"
+output = "HDMI-A-1"
+
+[[workspace]]
+name = "tools"
+layout.mode = "master" 
+output = "HDMI-A-1"
+
+[[workspace]]
+name = "obs"
+output = "HDMI-A-1"
+
+[[window_rule]]
+blur = true
+
+[[window_rule]]
+match.app_id = "^kitty$"
+default_workspace = "term"
+opacity = 0.9
+
+[[window_rule]]
+match.app_id = "^eyecandy$"
+match.title = "^cava$"
+default_output = "HDMI-A-1"
+default_workspace = "music"
+default_floating = true
+default_floating_size_px = { width = 872, height = 78 }
+default_position = { x = 36, y = 616, anchor = "top_left" }
+
+[[window_rule]]
+match.app_id = "^rmpc$"
+default_output = "HDMI-A-1"
+default_workspace = "music"
+default_floating = true
+default_floating_size_px = { width = 861, height = 573 }
+default_position = { x = 15, y = 15, anchor = "top_left" }
+
+
+[[window_rule]]
+match.app_id = "^eyecandy$"
+match.title = "^pipes\\.sh$"
+default_output = "HDMI-A-1"
+default_workspace = "music"
+default_floating = true
+default_floating_size_px = { width = 124, height = 410 }
+default_position = { x = 937, y = 257, anchor = "top_left" }
+
+[[window_rule]]
+match.app_id = "^eyecandy$"
+match.title = "^peaclock$"
+default_output = "HDMI-A-1"
+default_workspace = "music"
+default_floating = true
+default_floating_size_px = { width = 361, height = 190 }
+default_position = { x = 898, y = 16, anchor = "top_left" }
+
+[[window_rule]]
+match.app_id = "^lavat$"
+default_output = "HDMI-A-1"
+default_workspace = "music"
+default_floating = true
+default_floating_size_px = { width = 130, height = 464 }
+default_position = { x = 1103, y = 224, anchor = "top_left" }
+
+[[window_rule]]
+match.app_id = "^zen-beta$"
+default_workspace = "main"
+opacity = 1.0
+
+[[window_rule]]
+match.app_id = "^vesktop$"
+default_workspace = "chat"
+opacity = 1.0
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.UmbrielSharePicker$"
+default_floating = true
+default_floating_size_px = { width = 800, height = 600 }
+
+[[window_rule]]
+match.title = "^(Picture-in-Picture|Picture in picture)$"
+default_floating = true
+default_maximize = false
+default_position = { x = 20, y = 20, anchor = "bottom_right" }
+
+[[window_rule]]
+match.title = "^notificationtoasts_.+_desktop"
+default_position = { x = 0, y = 0, anchor = "bottom_right" }
+default_focused = false
+default_pinned = true
+
+# Keep game menus inside their window; a focus or workspace keybind releases the pointer.
+[[window_rule]]
+match.app_id = "^steam_app_.*$"
+confine_pointer = true
+
+[[window_rule]]
+match.app_id = "^steam$"
+default_workspace = "steam"
+
+# Keep an application drawing while it is hidden on another workspace, for programs whose other work stalls without it.
+[[window_rule]]
+match.app_id = "^obs$"
+background_render = true
+
+# Keep one application's modal dialogs as ordinary windows.
+# [[window_rule]]
+# match.app_id = "^gimp"
+# match.is_dialog = true
+# attach_to_parent = false
+
+# Named scratchpads can launch an application when toggled while empty.
+# [[scratchpad]]
+# name = "music"
+# spawn_when_empty = "spotify"
+
+# [[window_rule]]
+# match.app_id = "^spotify$"
+# default_scratchpad = "music"
+
+

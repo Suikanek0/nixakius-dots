@@ -1,0 +1,44 @@
+[include]
+files = [
+  "display.toml",
+  "looks.toml",
+  "keys.toml",
+  "layout.toml",
+  "rules.toml",  
+  "colors.toml",
+]
+
+[input.keyboard]
+repeat_rate = 25
+repeat_delay = 200
+numlock_toggle = true
+track_layout = "global"
+
+
+[input.focus]
+follows_mouse = true
+
+[include.optional]
+files = []
+
+[general]
+autostart = [
+  "kitty",
+  "awww-daemon",
+  "vesktop",
+  "easyeffects",
+  "zen-beta",
+  "sleep 1.1 && kitty --app-id=rmpc -o font_size=10 rmpc",
+  "sleep 0.3 && kitty --app-id=lavat ~/nixakius-dots/dotconf/lavat.sh",
+  "sleep 0.6 && kitty --app-id=eyecandy peaclock",
+  "sleep 0.8 && kitty --app-id=eyecandy pipes.sh",
+  "sleep 0.8 && kitty --app-id=eyecandy cava",
+]
+xwayland_native_resolution = true 
+show_cheatsheet = false
+
+[hot_corners.top_left]
+enabled = true
+delay_ms = 500
+action = "overview-open"
+

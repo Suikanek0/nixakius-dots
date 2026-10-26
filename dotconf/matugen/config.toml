@@ -1,0 +1,57 @@
+[config]
+
+#[config.wallpaper]
+#command = "awww img"
+#set = true
+
+[templates.kitty]
+input_path = '~/nixakius-dots/dotconf/matugen/templates/kitty-colors.conf'
+output_path = '~/nixakius-dots/dotconf/kitty/matugen/colors-matugen.conf'
+
+[templates.vicinae]
+input_path = '~/nixakius-dots/dotconf/matugen/templates/vicinae.toml'
+output_path = '~/nixakius-dots/dotconf/vicinae/themes/matugen.toml'
+post_hook = 'vicinae theme set matugen'
+
+[templates.umbriel]
+input_path = '~/nixakius-dots/dotconf/matugen/templates/umbriel.toml'
+output_path = '~/nixakius-dots/dotconf/umbriel/colors.toml'
+
+#[templates.zen_usercontent]
+#input_path = '~/nixakius-dots/dotconf/matugen/templates/userContent.css.template'
+#output_path = '~/nixakius-dots/dotconf/zen/default/chrome/userContent.css'
+
+
+#[templates.zen_userchrome]
+#input_path = '~/nixakius-dots/dotconf/matugen/templates/userChrome.css.template'
+#output_path = '~/nixakius-dots/dotconf/zen/default/chrome/userChrome.css'
+
+#[templates.alacritty]
+#input_path = '~/nixakius-dots/dotconf/matugen/templates/alacritty.toml'
+#output_path = '~/nixakius-dots/dotconf/alacritty/themes/themes/matugen.toml'
+#post_hook = "touch ~/nixakius-dots/dotconf/alacritty/alacritty.toml"
+
+
+# Gtk3
+#[templates.gtk3]
+#input_path = '~/nixakius-dots/dotconf/matugen/templates/matugen-gtk.css'
+#output_path = '~/nixakius-dots/dotconf/gtk-3.0/gtk.css'
+
+# Gtk4
+#[templates.gtk4]
+#input_path = '~/nixakius-dots/dotconf/matugen/templates/matugen-gtk.css'
+#output_path = '~/nixakius-dots/dotconf/gtk-4.0/gtk.css'
+
+# Kvantum
+#[templates.kvantum]
+#input_path = '~/nixakius-dots/dotconf/matugen/templates/matugen.kvconfig'
+#output_path = '~/nixakius-dots/dotconf/Kvantum/matugen/matugen.kvconfig'
+
+#[templates.niri]
+#input_path = "~/nixakius-dots/dotconf/matugen/templates/niri-colors.kdl"
+#output_path = "~/nixakius-dots/dotconf/niri/niri-colors.kdl"
+
+
+#[templates.hyprland]
+#input_path = '~/nixakius-dots/dotconf/matugen/templates/colors.lua'
+#output_path = '~/dots/hypr/conf/colors.lua'
