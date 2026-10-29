@@ -11,7 +11,7 @@ transform = "180"
 scale = 1.5
 
 [output.HDMI-A-1]
-position = [1920, -520]
+position = [1920, -660]
 transform = "normal"
-scale = 1.5
+scale = 1.25
 

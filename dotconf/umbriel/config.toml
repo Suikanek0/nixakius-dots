@@ -26,13 +26,17 @@ autostart = [
   "kitty",
   "awww-daemon",
   "vesktop",
-  "easyeffects",
+  "sleep 0.4 && easyeffects",
   "zen-beta",
-  "sleep 1.1 && kitty --app-id=rmpc -o font_size=10 rmpc",
+  "sleep 1.1 && kitty --app-id=rmpc -o font_size=12 rmpc",
   "sleep 0.3 && kitty --app-id=lavat ~/nixakius-dots/dotconf/lavat.sh",
   "sleep 0.6 && kitty --app-id=eyecandy peaclock",
   "sleep 0.8 && kitty --app-id=eyecandy pipes.sh",
   "sleep 0.8 && kitty --app-id=eyecandy cava",
+  "sleep 2 && mpc clear && mpc add / && mpc shuffle && mpc consume off",
+  "pavucontrol",
+  "nicotine-plus",
+  "musicpresence",
 ]
 xwayland_native_resolution = true 
 show_cheatsheet = false

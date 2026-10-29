@@ -33,53 +33,69 @@ output = "HDMI-A-1"
 blur = true
 
 [[window_rule]]
+match.app_id = '^org\.nicotine_plus\.Nicotine$'
+default_workspace = "tools"
+
+[[window_rule]]
+match.app_id = '^com\.github\.wwmm\.easyeffects$'
+default_workspace = "tools"
+
+[[window_rule]]
+match.app_id = '^org\.pulseaudio\.pavucontrol$' 
+default_scratchpad = "default"
+
+[[window_rule]]
 match.app_id = "^kitty$"
 default_workspace = "term"
 opacity = 0.9
 
+# Cava
 [[window_rule]]
 match.app_id = "^eyecandy$"
 match.title = "^cava$"
 default_output = "HDMI-A-1"
 default_workspace = "music"
 default_floating = true
-default_floating_size_px = { width = 872, height = 78 }
-default_position = { x = 36, y = 616, anchor = "top_left" }
+default_floating_size_px = { width = 1171, height = 106 }
+default_position = { x = 25, y = 726, anchor = "top_left" }
 
+# RMPC
 [[window_rule]]
 match.app_id = "^rmpc$"
 default_output = "HDMI-A-1"
 default_workspace = "music"
 default_floating = true
-default_floating_size_px = { width = 861, height = 573 }
-default_position = { x = 15, y = 15, anchor = "top_left" }
+default_floating_size_px = { width = 1026, height = 659 }
+default_position = { x = 24, y = 25, anchor = "top_left" }
 
-
+# Pipes.sh
 [[window_rule]]
 match.app_id = "^eyecandy$"
 match.title = "^pipes\\.sh$"
 default_output = "HDMI-A-1"
 default_workspace = "music"
 default_floating = true
-default_floating_size_px = { width = 124, height = 410 }
-default_position = { x = 937, y = 257, anchor = "top_left" }
+default_floating_size_px = { width = 136, height = 451 }
+default_position = { x = 1103, y = 241, anchor = "top_left" }
 
+# Lavat
+[[window_rule]]
+match.app_id = "^lavat$"
+default_output = "HDMI-A-1"
+default_workspace = "music"
+default_floating = true
+default_floating_size_px = { width = 168, height = 567 }
+default_position = { x = 1308, y = 243, anchor = "top_left" }
+
+# Peaclock
 [[window_rule]]
 match.app_id = "^eyecandy$"
 match.title = "^peaclock$"
 default_output = "HDMI-A-1"
 default_workspace = "music"
 default_floating = true
-default_floating_size_px = { width = 361, height = 190 }
-default_position = { x = 898, y = 16, anchor = "top_left" }
-
-[[window_rule]]
-match.app_id = "^lavat$"
-default_output = "HDMI-A-1"
-default_workspace = "music"
-default_floating = true
-default_floating_size_px = { width = 130, height = 464 }
-default_position = { x = 1103, y = 224, anchor = "top_left" }
+default_floating_size_px = { width = 413, height = 196 }
+default_position = { x = 1082, y = 15, anchor = "top_left" }
 
 [[window_rule]]
 match.app_id = "^zen-beta$"

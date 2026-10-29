@@ -19,6 +19,20 @@ in
     };
    };
   };
+  xdg.enable = true;
+
+
+  services.mpdscribble = {
+    enable = true;
+    endpoints."last.fm" = {
+      url = "https://post.audioscrobbler.com/";
+      username = "suikanek0";
+      passwordFile = "/home/suika/.config/mpdscribble/pass";
+    };
+  };
+  services.mpd-mpris = {
+   enable = true;
+  };
   services.mpd = {
     enable = true;
     musicDirectory = "/home/suika/windows/Music/DAP";
@@ -33,6 +47,10 @@ in
   };
 
   services.awww.enable = true;
+  programs.obsidian = {
+    enable = true;
+    vaults.notatki.target = "${config.home.homeDirectory}/Documents/obsidian_notes";
+  };
   programs.vicinae = {
     enable = true;
     systemd = {

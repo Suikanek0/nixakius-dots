@@ -43,12 +43,38 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   # programs
+  programs.starship = {
+    enable = true;
+    settings = {
+      username = {
+        show_always = true;
+      };
+      hostname = {
+        ssh_only = false;
+      };
+    };
+  };  
+  programs.obs-studio = {
+    enable = true;
+    package = (
+      pkgs.obs-studio.override {
+        cudaSupport = true;
+      }
+    );
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+      obs-gstreamer
+      obs-vkcapture
+    ];
+   };
   programs.steam.enable = true;
   programs.umbriel.enable = true;
   programs.ssh.startAgent = true;
   services.gnome.gcr-ssh-agent.enable = false;
 
-  # Use the systemd-boot EFI boot loader.
+# grub bootloader
   boot.loader = {
     grub = {
       enable = true;
@@ -133,6 +159,7 @@
     vesktop
     xauth
     xorg-server
+    wine
     easyeffects
     firefox
     gamescope
@@ -147,6 +174,11 @@
     nixfmt
     nicotine-plus
     kitty
+    starship
+    obsidian
+    mpd-mpris
+    musicpresence
+    mpdscribble
     cava
     tree
     matugen
@@ -171,6 +203,7 @@
     ];
     packages = [
       "org.vinegarhq.Sober"
+      "me.amankhanna.opendeck"
     ];
     overrides = {
       settings = {
@@ -212,7 +245,35 @@
    };
 
 
-
+  services.pipewire = {
+    enable = true; # if not already enabled
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment the following
+    #jack.enable = true;
+  };
+# Disable suspend of Toslink output to prevent audio popping.
+  services.pipewire.wireplumber.extraConfig."99-disable-suspend" = {
+    "monitor.alsa.rules" = [
+      {
+        matches = [
+          {
+            "node.name" = "alsa_input.usb-3142_fifine_Microphone-00.analog-stereo";
+          }
+          {
+            "node.name" = "alsa_output.pci-0000_2d_00.4.analog-stereo";
+          }
+        ];
+        actions = {
+          update-props = {
+            "session.suspend-timeout-seconds" = 0;
+          };
+        };
+      }
+    ];
+  };
+ # security.rtkit.enable = true;
   system.stateVersion = "26.05"; # Did you read the comment?
 
 }
