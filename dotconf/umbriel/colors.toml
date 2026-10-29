@@ -1,24 +1,24 @@
 # ~/.config/matugen/templates/umbriel.toml
 
 [colors]
-background = "#16130bFF"
-text_primary = "#e9e2d4FF"
-text_muted = "#cec6b4FF"
-accent_primary = "#dec56eFF"
-accent_secondary = "#d2c6a1FF"
-warning = "#aad0b1FF"
+background = "#111318FF"
+text_primary = "#e2e2e9FF"
+text_muted = "#c4c6d0FF"
+accent_primary = "#adc6ffFF"
+accent_secondary = "#bfc6dcFF"
+warning = "#debcdfFF"
 error = "#ffb4abFF"
-insert_hint = "#dec56e80"
+insert_hint = "#adc6ff80"
 backdrop = "#000000FF"
 shadow = "#0000007F"
 
 [colors.border]
-focused = "#dec56e"
-unfocused = "#2d2a21"
-outer = "#100e07"
+focused = "#adc6ff"
+unfocused = "#282a2f"
+outer = "#0c0e13"
 
 [colors.tab_bar]
-background = "#221f17"
-text = "#e9e2d4"
-active = "#dec56e"
-active_text = "#3b2f00"
+background = "#1e1f25"
+text = "#e2e2e9"
+active = "#adc6ff"
+active_text = "#102f60"
