@@ -6,6 +6,7 @@
 "Mod+E" = { action = "spawn:kitty --app-id=yazi yazi", repeat = false }
 "Mod+X" = { action = "window-close", repeat = false }
 "Mod+Shift+Escape" = "session-quit"
+"Mod+Shift+S" = { action = 'spawn:grim -g "$(slurp)" - | wl-copy', repeat = false }
 "Mod+Shift+Return" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
 
 # Focus and movement

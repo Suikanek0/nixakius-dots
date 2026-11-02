@@ -174,6 +174,13 @@
     nixfmt
     nicotine-plus
     kitty
+    gnome-themes-extra
+    wl-clipboard
+    grim
+    slurp
+    libreoffice
+    prismlauncher
+    parsec-bin
     starship
     obsidian
     mpd-mpris
@@ -204,6 +211,7 @@
     packages = [
       "org.vinegarhq.Sober"
       "me.amankhanna.opendeck"
+      "sh.ppy.osu"
     ];
     overrides = {
       settings = {
@@ -224,8 +232,9 @@
    services.openssh.enable = true;
 
   # Open ports in the firewall.
-   networking.firewall.allowedTCPPorts = [ 2234 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+   networking.firewall.enable = true;
+   networking.firewall.allowedTCPPorts = [ 2234 51234 ];
+   networking.firewall.allowedUDPPorts = [ 51234 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
@@ -273,7 +282,7 @@
       }
     ];
   };
- # security.rtkit.enable = true;
+  security.rtkit.enable = true;
   system.stateVersion = "26.05"; # Did you read the comment?
 
 }

@@ -16,12 +16,13 @@ track_layout = "global"
 
 
 [input.focus]
-follows_mouse = true
+follows_mouse = false
 
 [include.optional]
 files = []
 
 [general]
+nvidia_sync_workaround = false
 autostart = [
   "kitty",
   "awww-daemon",

@@ -2,11 +2,11 @@
 enabled = true
 optimized = true
 passes = 2
-radius = 5
-noise = 0.02
+radius = 4
+noise = 0.12
 brightness = 0.9
 contrast = 0.9
-saturation = 1.1
+saturation = 1.6
 
 [appearance]
 prefer_no_csd = true
