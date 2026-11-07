@@ -173,7 +173,13 @@
     mpd
     nixfmt
     nicotine-plus
+    rsync
     kitty
+    nodejs
+    grsync
+    android-file-transfer
+    unzip
+    gimp
     gnome-themes-extra
     wl-clipboard
     grim
@@ -209,6 +215,7 @@
       }
     ];
     packages = [
+      "me.amankhanna.opendeck"
       "org.vinegarhq.Sober"
       "me.amankhanna.opendeck"
       "sh.ppy.osu"
