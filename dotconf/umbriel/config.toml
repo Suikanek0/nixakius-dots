@@ -34,7 +34,7 @@ autostart = [
   "sleep 0.6 && kitty --app-id=eyecandy peaclock",
   "sleep 0.8 && kitty --app-id=eyecandy pipes.sh",
   "sleep 0.8 && kitty --app-id=eyecandy cava",
-  "sleep 2 && mpc clear && mpc add / && mpc shuffle && mpc consume off",
+  "sleep 2 && mpc rescan && mpc clear && mpc add / && mpc shuffle && mpc consume off",
   "pavucontrol",
   "nicotine-plus",
   "musicpresence",

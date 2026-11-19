@@ -54,6 +54,7 @@
       };
     };
   };  
+
   programs.obs-studio = {
     enable = true;
     package = (
@@ -73,6 +74,8 @@
   programs.umbriel.enable = true;
   programs.ssh.startAgent = true;
   services.gnome.gcr-ssh-agent.enable = false;
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
 # grub bootloader
   boot.loader = {
@@ -95,6 +98,26 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  networking = {
+  useDHCP = false;
+  bridges = {
+    "br0" = {
+      interfaces = [ "enp42s0" ]; # Podmień na swoją nazwę interfejsu (np. eth0, eno1)
+    };
+  };
+
+  # Konfiguracja adresu IP dla utworzonego mostu
+  interfaces.br0 = {
+    ipv4.addresses = [ {
+      address = "192.168.100.100";
+      prefixLength = 24;
+    } ];
+  };
+
+  defaultGateway = "192.168.100.1";
+  nameservers = [ "192.168.100.50" ];
+};
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
@@ -139,8 +162,11 @@
     isNormalUser = true;
     description = "suika";
     extraGroups = [
+      "input"
+      "plugdev"
       "networkmanager"
       "wheel"
+      "libvirtd"
     ];
     packages = with pkgs; [ ];
   };
@@ -152,6 +178,7 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
+    dnsmasq
     neovim
     fastfetch
     git
@@ -175,10 +202,22 @@
     nicotine-plus
     rsync
     kitty
+    inkscape
+    smartmontools
+    polkit_gnome
+    polkit
+    qdiskinfo
+    aria2
+    transmission_4-gtk
+    nwg-look
+    usbutils
+    lutris
     nodejs
     grsync
     android-file-transfer
     unzip
+    unrar
+    p7zip
     gimp
     gnome-themes-extra
     wl-clipboard
@@ -237,18 +276,30 @@
 
   # Enable the OpenSSH daemon.
    services.openssh.enable = true;
+   systemd.user.services.polkit-gnome-authentication-agent-1 = {
+     description = "polkit-gnome-authentication-agent-1";
+     wantedBy = [ "graphical-session.target" ];
+     wants = [ "graphical-session.target" ];
+     after = [ "graphical-session.target" ];
+     serviceConfig = {
+       Type = "simple";
+       ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+       Restart = "on-failure";
+       RestartSec = 1;
+       TimeoutStopSec = 10;
+     };
+   };
 
   # Open ports in the firewall.
    networking.firewall.enable = true;
    networking.firewall.allowedTCPPorts = [ 2234 51234 ];
    networking.firewall.allowedUDPPorts = [ 51234 ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
+  security.polkit.enable = true;
   # windows disk mount
   fileSystems."/home/suika/windows" = {
     device = "/dev/disk/by-uuid/EE3AD89A3AD860DF";
-    fsType = "ntfs3";
+    fsType = "ntfs-3g";
     options = [
       "defaults"
       "nofail"
@@ -292,4 +343,10 @@
   security.rtkit.enable = true;
   system.stateVersion = "26.05"; # Did you read the comment?
 
+  services.udev.extraRules = ''
+    # Ajazz AKP03 / Mirabox N3
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="0300", ATTRS{idProduct}=="3002", MODE="0666", TAG+="uaccess"
+    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0300", ATTRS{idProduct}=="3002", MODE="0666", TAG+="uaccess"
+    KERNEL=="hidraw*", ATTRS{idVendor}=="0300", ATTRS{idProduct}=="3002", MODE="0666", TAG+="uaccess"
+  '';
 }
