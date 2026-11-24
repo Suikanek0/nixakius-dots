@@ -17,6 +17,11 @@ in
 	identityFile = "~/.ssh/githubkey";
 	identitiesOnly = true;
     };
+      "steamdeck" = {
+        hostname = "192.168.100.50";
+	identityFile = "~/.ssh/steamdeck";
+	user = "serwer";
+    };
    };
   };
   xdg.enable = true;
